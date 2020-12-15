@@ -1,16 +1,21 @@
-# This is a sample Python script.
+import random  # suvalise numbri generaator
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+basseiniotsad = []  # tühja nimekirja tekitamine
+for i in range(5):  # 5 erinevat basseiniotsa kogust
+    basseiniotsad.append(random.randint(30, 50))  # lisab nimekirja
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+meetrid = int(input("Sisestage, mitu meetrit on üks basseiniots: "))  # input kasutaja jaoks
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def kalorid(ujutud, pikkus):  # funktsiooni defineerimine
+    kulunud = (ujutud * pikkus / 1000) * 120
+    return kulunud
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+kokku = 0  # muutuja egitamine
+for y in range(len(basseiniotsad)):  # basseiniotste pikkusega tsükkel
+    kaloreid = kalorid(basseiniotsad[y], meetrid)
+    print("Kaloreid kulus: " + str(kaloreid))
+    kokku = kokku + kaloreid
+
+print("Kokku kulus " + str(round(kokku,1)) + " kalorit.")
